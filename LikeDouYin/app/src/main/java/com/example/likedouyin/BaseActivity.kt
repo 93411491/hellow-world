@@ -1,8 +1,11 @@
 package com.example.likedouyin
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
 import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.gyf.immersionbar.ImmersionBar
