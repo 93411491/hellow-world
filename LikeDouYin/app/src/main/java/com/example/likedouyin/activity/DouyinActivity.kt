@@ -1,14 +1,17 @@
-package com.example.likedouyin
+package com.example.likedouyin.activity
 
-import adapter.CommonAdapter
-import android.util.Log
+import com.example.likedouyin.adapter.CommonAdapter
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
+import com.example.likedouyin.R
 import com.google.android.material.tabs.TabLayout
-import fragment.MainFragment
-import fragment.PersonalHomeFragment
-import utils.Utils
+import com.example.likedouyin.fragment.MainFragment
+import com.example.likedouyin.fragment.PersonalHomeFragment
+import com.example.likedouyin.myUtils.Util
 
+/*
+* 主页activity，内部包含私人fragment与主页fragment
+* */
 class DouyinActivity : BaseActivity() {
     companion object {
         private const val TAG = "DouyinActivity"
@@ -47,8 +50,6 @@ class DouyinActivity : BaseActivity() {
 
     }
 
-
-
     override fun onBackPressed() {
 
         val currentClickTime = System.currentTimeMillis()
@@ -56,7 +57,7 @@ class DouyinActivity : BaseActivity() {
             if (mViewPager.currentItem == 1) {
                 mViewPager.currentItem = 0
             } else {
-                Utils.showToastTips(this, "再按一次")
+                Util.showToastTips(this, "再按一次")
                 lastExitTime = currentClickTime
             }
         } else {

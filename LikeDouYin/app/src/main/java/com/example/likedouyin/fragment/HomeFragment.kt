@@ -1,6 +1,6 @@
-package fragment
+package com.example.likedouyin.fragment
 
-import adapter.CommonAdapter
+import com.example.likedouyin.adapter.CommonAdapter
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager

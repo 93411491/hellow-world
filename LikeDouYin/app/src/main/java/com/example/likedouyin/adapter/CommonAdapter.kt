@@ -1,10 +1,9 @@
-package adapter
+package com.example.likedouyin.adapter
 
 import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.fragment.app.FragmentStatePagerAdapter
 
 class CommonAdapter(
     fm: FragmentManager, private var mItem: ArrayList<Fragment>,

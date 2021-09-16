@@ -1,4 +1,4 @@
-package fragment
+package com.example.likedouyin.fragment
 
 import com.example.likedouyin.R
 

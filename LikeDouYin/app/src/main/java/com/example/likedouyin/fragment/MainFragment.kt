@@ -1,7 +1,6 @@
-package fragment
+package com.example.likedouyin.fragment
 
 import android.util.Log
-import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.likedouyin.R
@@ -80,9 +79,7 @@ class MainFragment : BaseFragment() {
     private fun setMainMenuTab() {
         mMainTabLayout.addTab(mMainTabLayout.newTab().setText("首页"))
         mMainTabLayout.addTab(mMainTabLayout.newTab().setText("发现"))
-
-        mMainTabLayout.addTab(mMainTabLayout.newTab().setText(""))//给加号图片留出位置
-
+        mMainTabLayout.addTab(mMainTabLayout.newTab().setText(" "))//给加号图片留出位置
         mMainTabLayout.addTab(mMainTabLayout.newTab().setText("收件箱"))
         mMainTabLayout.addTab(mMainTabLayout.newTab().setText("我"))
 

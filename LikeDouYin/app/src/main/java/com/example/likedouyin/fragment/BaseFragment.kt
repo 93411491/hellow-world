@@ -1,15 +1,12 @@
-package fragment
+package com.example.likedouyin.fragment
 
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import butterknife.ButterKnife
-import com.example.likedouyin.R
 
 /*
     基础fragment

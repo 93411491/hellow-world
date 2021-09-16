@@ -1,12 +1,16 @@
-package utils;
+package com.example.likedouyin.myUtils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.Toast;
 
-public class Utils {
-
+/**
+ * author : wangzhirui
+ * date : 2021/9/9
+ * description :
+ */
+public class Util {
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
@@ -25,6 +29,5 @@ public class Utils {
     public static void showToastTips(final Context context, final String tips) {
         Toast.makeText(context, tips, Toast.LENGTH_SHORT).show();
     }
-
 
 }
