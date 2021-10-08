@@ -7,7 +7,7 @@ package com.example.myrxjava.core;
  */
 public abstract class Observable<T> implements ObservableSource<T> {
     @Override
-    public void subscibe(Observer observer) {
+    public void subscibe(Observer<T> observer) {
 
         //和谁建立订阅
         //怎么建立订阅

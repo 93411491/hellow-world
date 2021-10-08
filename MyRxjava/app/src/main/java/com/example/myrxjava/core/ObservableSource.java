@@ -1,4 +1,6 @@
-package com.example.myrxjava;
+package com.example.myrxjava.core;
+
+import com.example.myrxjava.core.Observer;
 
 /**
  * author : wangzhirui
@@ -7,5 +9,5 @@ package com.example.myrxjava;
  */
 public interface ObservableSource<T> {
 
-    public void subscibe(Observer observer);
+    public void subscibe(Observer<T> observer);
 }
