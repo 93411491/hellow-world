@@ -1,5 +1,7 @@
 package com.example.myrxjava.core;
 
+import com.example.myrxjava.createOperator.ObservableCreate;
+
 /**
  * author : wangzhirui
  * date : 2021/10/8
@@ -15,5 +17,9 @@ public abstract class Observable<T> implements ObservableSource<T> {
         subscribeActually(observer);
     }
 
-    abstract void subscribeActually(Observer observer);
+    protected abstract void subscribeActually(Observer<T> observer);
+
+    public static<T> Observable<T> create(ObservableOnSubscribe<T> source){
+        return new ObservableCreate<>(source);
+    }
 }
