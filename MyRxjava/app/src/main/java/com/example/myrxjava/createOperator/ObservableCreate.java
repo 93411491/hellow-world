@@ -30,6 +30,7 @@ public class ObservableCreate<T> extends Observable<T> {
         source.subscribe(createEmitter);
     }
 
+    //Emitter的具体实现类，该类中具体实现了观察者与是事件发射器的联系
     static class CreateEmitter<T> implements Emitter<T> {
         final Observer<T> observer;
         boolean done; //标记事件是否已经完成

@@ -1,6 +1,8 @@
 package com.example.myrxjava.core;
 
 import com.example.myrxjava.createOperator.ObservableCreate;
+import com.example.myrxjava.mapOperator.Function;
+import com.example.myrxjava.mapOperator.ObservableMap;
 
 /**
  * author : wangzhirui
@@ -21,5 +23,9 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     public static<T> Observable<T> create(ObservableOnSubscribe<T> source){
         return new ObservableCreate<>(source);
+    }
+
+    public <R> ObservableMap<T,R> map(Function<T,R> function){
+        return new ObservableMap<>(this, function);
     }
 }
