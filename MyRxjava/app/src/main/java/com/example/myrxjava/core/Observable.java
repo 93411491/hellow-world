@@ -1,6 +1,7 @@
 package com.example.myrxjava.core;
 
 import com.example.myrxjava.createOperator.ObservableCreate;
+import com.example.myrxjava.flatmapOperator.ObservableFlatmap;
 import com.example.myrxjava.mapOperator.Function;
 import com.example.myrxjava.mapOperator.ObservableMap;
 
@@ -25,7 +26,13 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return new ObservableCreate<>(source);
     }
 
+    //map操作符
     public <R> ObservableMap<T,R> map(Function<T,R> function){
         return new ObservableMap<>(this, function);
+    }
+
+    //flatmap操作符
+    public <R> ObservableFlatmap<T,R> flatmap(Function<T,ObservableSource<R>> function){
+        return new ObservableFlatmap<>(this, function);
     }
 }
