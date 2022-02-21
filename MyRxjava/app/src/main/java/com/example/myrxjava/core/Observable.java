@@ -1,5 +1,8 @@
 package com.example.myrxjava.core;
 
+import com.example.myrxjava.ObserveOnOperator.ObservableObserveOn;
+import com.example.myrxjava.Scheduler.Scheduler;
+import com.example.myrxjava.SubscribeOnOperator.ObservableSubscribeOn;
 import com.example.myrxjava.createOperator.ObservableCreate;
 import com.example.myrxjava.flatmapOperator.ObservableFlatmap;
 import com.example.myrxjava.mapOperator.Function;
@@ -34,5 +37,14 @@ public abstract class Observable<T> implements ObservableSource<T> {
     //flatmap操作符
     public <R> ObservableFlatmap<T,R> flatmap(Function<T,ObservableSource<R>> function){
         return new ObservableFlatmap<>(this, function);
+    }
+
+    //subscribeOn操作符
+    public ObservableSubscribeOn<T> subscribeOn(Scheduler scheduler) {
+        return new ObservableSubscribeOn<T>(this, scheduler);
+    }
+
+    public ObservableObserveOn<T> ObserveOn(Scheduler scheduler) {
+        return new ObservableObserveOn<T>(this, scheduler);
     }
 }
