@@ -15,7 +15,7 @@ import com.example.myrxjava.mapOperator.ObservableMap;
  */
 public abstract class Observable<T> implements ObservableSource<T> {
     @Override
-    public void subscibe(Observer<T> observer) {
+    public void subscribe(Observer<T> observer) {
 
         //和谁建立订阅
         //怎么建立订阅

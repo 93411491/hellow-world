@@ -9,5 +9,5 @@ import com.example.myrxjava.core.Observer;
  */
 public interface ObservableSource<T> {
 
-    public void subscibe(Observer<T> observer);
+    public void subscribe(Observer<T> observer);
 }

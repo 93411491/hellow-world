@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.example.myrxjava.Scheduler.HandlerScheduler;
 import com.example.myrxjava.Scheduler.Schedulers;
 import com.example.myrxjava.core.Emitter;
 import com.example.myrxjava.core.Observable;
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        }).subscibe(new Observer<Object>() {
+        }).subscribe(new Observer<Object>() {
             @Override
             public void onNext(Object o) {
                 Log.d(TAG, "(wzr)->onNext: threadName = "+ Thread.currentThread().toString());
@@ -109,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        }).subscibe(new Observer<Object>() {
+        }).subscribe(new Observer<Object>() {
             @Override
             public void onNext(Object o) {
                 Log.d(TAG, "(wzr)->onNext: " + o);
@@ -144,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
             public Object apply(Object o) {
                 return o + "222";
             }
-        }).subscibe(new Observer<Object>() {
+        }).subscribe(new Observer<Object>() {
             @Override
             public void onNext(Object o) {
                 System.out.println(o);
@@ -177,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
                 emitter.onError(new Throwable("wzr"));
                 emitter.onComplete();
             }
-        }).subscibe(new Observer<Object>() {
+        }).subscribe(new Observer<Object>() {
             @Override
             public void onNext(Object o) {
                 Log.d(TAG, "(wzr)->onNext: " + o);

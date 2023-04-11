@@ -21,15 +21,15 @@ public class ObservableMap<T,U> extends AbstractObservableWithUpStream<T,U> {
     @Override
     protected void subscribeActually(Observer<U> observer) {
         /*
-        * 正常来讲，这里是用source.subscibe(observer)即可建立订阅关系，但是
+        * 正常来讲，这里是用source.subscribe(observer)即可建立订阅关系，但是
         * 并不是用传入的observer，因为如果使用传入的observer来处理事件，此时其
         * 处理实现的类型为T，但是我们真正要处理的是被map转换为R类型的事件，因此需
         * 要一个内部类来实现其类型转换能力
         *
         * 而且该位置并不需要调用 observer.onSubscibe()
         * */
-//        source.subscibe(observer);
-        source.subscibe(new MapObserver<T, U>(observer,function));
+//        source.subscribe(observer);
+        source.subscribe(new MapObserver<T, U>(observer,function));
     }
 
     static class MapObserver<T,U> implements Observer<T> {

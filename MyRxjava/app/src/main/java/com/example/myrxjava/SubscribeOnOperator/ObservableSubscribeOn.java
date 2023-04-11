@@ -24,6 +24,8 @@ public class ObservableSubscribeOn<T> extends AbstractObservableWithUpStream<T,T
         //subscribeOn只会影响到被观察者的发送事件时所处的线程，因此onSubscribe的调用应仍处于主线程
         observer.onSubscribe();
         Scheduler.Worker worker = scheduler.createWorker();
+        //此时切换分支后，被观察者与观察者都处于外界传入的线程，如果不用observeOn方法重新切换线程，
+        //那么之后观察者所调用的方法也都与被观察者处于相同线程
         worker.scheduler(new SubscribeTask(new SubscribeOnObserver<>(observer)));
     }
 
@@ -59,6 +61,7 @@ public class ObservableSubscribeOn<T> extends AbstractObservableWithUpStream<T,T
         }
     }
 
+    //
     final class SubscribeTask implements Runnable{
 
         SubscribeOnObserver<T> observer;
@@ -67,9 +70,10 @@ public class ObservableSubscribeOn<T> extends AbstractObservableWithUpStream<T,T
             this.observer = observer;
         }
 
+        //subscribeOn操作符指修改subscribe方法所处的线程
         @Override
         public void run() {
-            source.subscibe(observer);
+            source.subscribe(observer);
         }
     }
 }

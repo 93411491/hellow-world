@@ -1,6 +1,5 @@
 package com.example.myrxjava.flatmapOperator;
 
-import com.example.myrxjava.core.Observable;
 import com.example.myrxjava.core.ObservableSource;
 import com.example.myrxjava.core.Observer;
 import com.example.myrxjava.mapOperator.AbstractObservableWithUpStream;
@@ -23,7 +22,7 @@ public class ObservableFlatmap<T,U> extends AbstractObservableWithUpStream<T,U> 
     @Override
     protected void subscribeActually(Observer<U> observer) {
 
-        source.subscibe(new MergeObserver<T, U>(observer, function));
+        source.subscribe(new MergeObserver<T, U>(observer, function));
     }
 
     static class MergeObserver<T, U> implements Observer<T> {
@@ -39,7 +38,7 @@ public class ObservableFlatmap<T,U> extends AbstractObservableWithUpStream<T,U> 
         @Override
         public void onNext(T t) {
             ObservableSource<U> newObservable = function.apply(t);
-            newObservable.subscibe(new Observer<U>() {
+            newObservable.subscribe(new Observer<U>() {
                 @Override
                 public void onNext(U u) {
                     downStreamObserver.onNext(u);

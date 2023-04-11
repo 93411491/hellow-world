@@ -5,7 +5,8 @@ import android.os.Handler;
 /**
  * author : wangzhirui
  * date : 2021/12/7
- * description :
+ * description : 外界将handler传入得到HandlerScheduler中，让runnable在相应
+ *              线程执行
  */
 public class HandlerScheduler extends Scheduler{
 
@@ -20,6 +21,7 @@ public class HandlerScheduler extends Scheduler{
         return new HandlerWorker(handler);
     }
 
+    //具体实现类
     static class HandlerWorker implements Worker{
 
         //外部注入的，执行线程切换的映射
@@ -29,6 +31,7 @@ public class HandlerScheduler extends Scheduler{
             this.mapper = mapper;
         }
 
+        //调用该方法时，runnable就在相关handler的
         @Override
         public void scheduler(Runnable runnable) {
             mapper.post(runnable);

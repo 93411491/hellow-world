@@ -10,6 +10,7 @@ public abstract class Scheduler {
     public abstract Worker createWorker();
 
     //线程调度具体执行的位置
+    //runnable最终在哪个线程执行，就取决于worker在哪里
     public interface Worker{
         void scheduler(Runnable runnable);
     }

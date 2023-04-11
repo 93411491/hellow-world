@@ -28,7 +28,7 @@ public class ObservableObserveOn<T> extends AbstractObservableWithUpStream<T,T> 
     @Override
     protected void subscribeActually(Observer<T> observer) {
         Scheduler.Worker worker = scheduler.createWorker();
-        source.subscibe(new ObserveOnObserver<>(observer, worker));
+        source.subscribe(new ObserveOnObserver<>(observer, worker));
     }
 
     static final class ObserveOnObserver<T> implements Observer<T>, Runnable {
