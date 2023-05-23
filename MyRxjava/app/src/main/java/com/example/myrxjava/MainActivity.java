@@ -15,6 +15,10 @@ import com.example.myrxjava.mapOperator.Function;
 
 import java.text.SimpleDateFormat;
 
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.subjects.AsyncSubject;
+import io.reactivex.rxjava3.subjects.BehaviorSubject;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "wzr->MainActivity";
 
@@ -27,8 +31,41 @@ public class MainActivity extends AppCompatActivity {
 //        createTest();
 //        mapTest();
 //        flatmapTest();
-        subscribeOnTest();
+//        subscribeOnTest();
     }
+
+
+    private void test1(){
+        AsyncSubject<Object > objectAsyncSubject = AsyncSubject.create();
+        objectAsyncSubject.onNext("A");
+        objectAsyncSubject.onNext("B");
+        objectAsyncSubject.subscribe(new Consumer<Object>() {
+            @Override
+            public void accept(Object o) throws Exception {
+                Log.i("TAG", "accept:" + 0);
+            }
+        });
+        objectAsyncSubject.onNext("c");
+        // 必须调川onComplete
+        objectAsyncSubject.onComplete();
+    }
+
+    private void test2(){
+        BehaviorSubject<Object > objectAsyncSubject = BehaviorSubject.create();
+        objectAsyncSubject.onNext("A");
+        objectAsyncSubject.onNext("B");
+        objectAsyncSubject.subscribe(new Consumer<Object>() {
+            @Override
+            public void accept(Object o) throws Exception {
+                Log.i("TAG", "accept:" + 0);
+            }
+        });
+        objectAsyncSubject.onNext("c");
+        // 必须调川onComplete
+        objectAsyncSubject.onComplete();
+    }
+
+
 
     private void subscribeOnTest() {
 
